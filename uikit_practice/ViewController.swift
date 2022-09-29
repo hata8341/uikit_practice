@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         }
     }
 
-
+    @IBOutlet weak var label: UILabel!
+    
+    @IBAction func toggle_swtch(_ sender: Any) {
+    }
+    @IBAction func button_bule(_ sender: Any) {
+    }
 }
 
