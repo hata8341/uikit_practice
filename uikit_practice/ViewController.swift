@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label_t: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,6 +21,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     
+    @IBAction func sayhello(_ sender: Any) {
+        label.text = "こんにちは"
+    }
     @IBAction func toggle_swtch(_ sender: Any) {
     }
     @IBAction func button_bule(_ sender: Any) {
