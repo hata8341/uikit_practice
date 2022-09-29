@@ -30,7 +30,7 @@
                                     <action selector="button_bule:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1n-Uy-Kcd"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOE-zn-HiN">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOE-zn-HiN" userLabel="cus_btn" customClass="custom_button">
                                 <rect key="frame" x="177" y="376" width="63" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="CDM-3b-Stm"/>
@@ -39,6 +39,12 @@
                                     <action selector="toggle_swtch:" destination="BYZ-38-t0r" eventType="valueChanged" id="HTy-G5-Aru"/>
                                 </connections>
                             </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eay-ik-plX">
+                                <rect key="frame" x="159" y="268" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
