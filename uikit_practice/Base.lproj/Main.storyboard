@@ -45,6 +45,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <colorWell contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eGo-Ym-icG">
+                                <rect key="frame" x="186" y="549" width="42" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </colorWell>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,12 +62,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="color_ball" destination="eGo-Ym-icG" id="DOW-99-14z"/>
                         <outlet property="label" destination="tor-PN-BUf" id="lR6-d3-v76"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="4"/>
+            <point key="canvasLocation" x="84.057971014492765" y="3.3482142857142856"/>
         </scene>
     </scenes>
     <resources>

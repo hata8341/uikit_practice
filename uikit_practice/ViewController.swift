@@ -24,5 +24,6 @@ class ViewController: UIViewController {
     }
     @IBAction func button_bule(_ sender: Any) {
     }
+    @IBOutlet weak var color_ball: UIColorWell!
 }
 
