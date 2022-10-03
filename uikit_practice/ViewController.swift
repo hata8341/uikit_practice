@@ -9,51 +9,58 @@ import UIKit
 
 class ViewController : UIViewController{
     
-    //    Blue View.Leading = Superview.LeadingMargin
     //
-    //    Blue View.Trailing = Superview.TrailingMargin
     //
-    //    Blue View.Top = Top Layout Guide.Bottom + Standard (Priority 750)
     //
-    //    Blue View.Top >= Superview.Top + 20.0
     //
-    //    Bottom Layout Guide.Top = Blue View.Bottom + Standard (Priority 750)
     //
-    //    Superview.Bottom >= Blue View.Bottom + 20.0
-    private let newView : UIView = UIView()
+    //
+    //
     
+    
+    private let yellowView : UIView = UIView()
+    
+    private let greenView : UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("スタート")
+        yellowView.backgroundColor = .yellow
+        greenView.backgroundColor = .green
         //        AutoresizingMask を 無効化 Auto Layout変換
-        newView.backgroundColor = .blue
+        //        newView.backgroundColor = .blue
+        yellowView.translatesAutoresizingMaskIntoConstraints = false
+        greenView.translatesAutoresizingMaskIntoConstraints = false
         
-        newView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(yellowView)
+        self.view.addSubview(greenView)
+        //
+        //        newView.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //        view.addSubview(newView)
         
-        view.addSubview(newView)
-        
-        //        superviewのmargin
-        let margins = view.layoutMarginsGuide
-        
-        let leading = newView.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
-        //        print("1",leading)
-        let trailing = newView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-        //        print("2",trailing)
-        let top = newView.topAnchor.constraint(equalTo:  view.safeAreaLayoutGuide.topAnchor)
-        top.priority = UILayoutPriority(750)
-        //        優先度の指定の仕方
-        let topIm = newView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: 20.0)
-        
-        let bottom = self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: newView.bottomAnchor)
-        bottom.priority = UILayoutPriority(750)
-        let bottomIm = self.view.bottomAnchor.constraint(greaterThanOrEqualTo: newView.bottomAnchor, constant: 20.0)
-        
-        
+        let margin = view.layoutMarginsGuide
+        //    Yellow View.Leading = Superview.LeadingMargin
+        let yellowLead = yellowView.leadingAnchor.constraint(equalTo: margin.leadingAnchor)
+        //    Green View.Leading = Yellow View.Trailing + Standard
+        let greenLead = greenView.leadingAnchor.constraint(equalToSystemSpacingAfter: yellowView.trailingAnchor, multiplier: 1.0)
+        //    Green View.Trailing = Superview.TrailingMargin
+        let greenTrail = greenView.trailingAnchor.constraint(equalTo: margin.trailingAnchor)
+        //    Yellow View.Top = Top Layout Guide.Bottom + 20.0
+        let yellowTop = yellowView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+        //    Green View.Top = Top Layout Guide.Bottom + 20.0
+        let greenTop = greenView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+        //    Bottom Layout Guide.Top = Yellow View.Bottom + 20.0
+        let yellowBottom =
+        self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: yellowView.bottomAnchor, constant: 20.0)
+        //    Bottom Layout Guide.Top = Green View.Bottom + 20.0
+        let greenBottom =
+        self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: greenView.bottomAnchor, constant: 20.0)
+        //    Yellow View.Width = Green View.Width
+        let yellowGreenWidth = yellowView.widthAnchor.constraint(equalTo: greenView.widthAnchor)
         //制約を有効化します
-        NSLayoutConstraint.activate([leading, trailing, top, bottom,topIm,bottomIm])
+        NSLayoutConstraint.activate([yellowLead,greenLead,greenTrail,yellowTop,greenTop,yellowBottom,greenBottom,yellowGreenWidth])
         
-        //        view.backgroundColor = .black
     }
     
     
