@@ -44,10 +44,21 @@ class ViewController : UIViewController{
 //        ビューとそのスーパービューの端の間は20.0ポイント、兄弟ビューの間は8.0ポイントの間隔が標準となっています
 //        Name Text Field.Leading = Name Label.Trailing + Standard
         let textNameLead = textName.leadingAnchor.constraint(equalTo: lableName.trailingAnchor, constant: 8.0)
-//        Name Text Field.Top = Top Layout Guide.Bottom + 20.0
-        let textNameTop = textName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+//        Name Label.Top >= Top Layout Guide.Bottom + 20.0
+        let labelTopGreater = lableName.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+//        Name Label.Top = Top Layout Guide.Bottom + 20.0 (Priority 249)
+        let labelTopPri = lableName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+        labelTopPri.priority = UILayoutPriority(249)
+        
+//        Name Text Field.Top >= Top Layout Guide.Bottom + 20.0
+        let textNameTopGreater = textName.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+//        Name Text Field.Top = Top Layout Guide.Bottom + 20.0 (Priority 249)
+        let textNameTopPri = textName.topAnchor.constraint(equalTo: view.topAnchor, constant: 20.0)
+        textNameTopPri.priority = UILayoutPriority(249)
 //        Name label.Baseline = Name Text Field.Baseline
-        let lableBaseline = lableName.firstBaselineAnchor.constraint(equalTo: textName.firstBaselineAnchor)
+        let labelBaseline = lableName.firstBaselineAnchor.constraint(equalTo: textName.firstBaselineAnchor)
+
+
 
 //        優先度から
         lableName.setContentHuggingPriority(UILayoutPriority(251), for: .horizontal)
@@ -60,7 +71,7 @@ class ViewController : UIViewController{
         textName.setContentCompressionResistancePriority(.init(750), for: .horizontal)
         textName.setContentCompressionResistancePriority(.init(750), for: .vertical)
 //        //制約を有効化します
-        NSLayoutConstraint.activate([lableLeading,textNameTrail,textNameLead,textNameTop,lableBaseline])
+        NSLayoutConstraint.activate([lableLeading,textNameTrail,textNameLead,labelTopGreater,labelTopPri,textNameTopPri,textNameTopGreater,labelBaseline])
         
     }
     
