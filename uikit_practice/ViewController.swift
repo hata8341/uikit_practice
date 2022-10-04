@@ -42,6 +42,10 @@ class ViewController : UIViewController{
         midLableName.textAlignment = .right
         lastLableName.textAlignment = .right
         
+//        lableName.font = lableName.font.withSize(100)
+//        midLableName.font = midLableName.font.withSize(10)
+//        lastLableName.font = lastLableName.font.withSize(25)
+        
         textName.placeholder = "Enter first name"
         textName.layer.borderColor = UIColor.lightGray.cgColor
         textName.layer.borderWidth = 1
@@ -99,14 +103,39 @@ class ViewController : UIViewController{
         let firstTextWidthToMid = textName.widthAnchor.constraint(equalTo: midTextName.widthAnchor)
         //        First Name Text Field.Width = Last Name Text Field.Width
         let firstTextWidthToLast = textName.widthAnchor.constraint(equalTo: lastTextName.widthAnchor)
-        //        First Name Text Field.Top = Top Layout Guide.Bottom + 20.0
-        let firstTextTop = textName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20.0)
-        //        Middle Name Text Field.Top = First Name Text Field.Bottom + Standard
-        let midTextTop = midTextName.topAnchor.constraint(equalTo: textName.bottomAnchor,constant: 8.0)
-        
-        //        Last Name Text Field.Top = Middle Name Text Field.Bottom + Standard
-        let lastTextTop = lastTextName.topAnchor.constraint(equalTo: midTextName.bottomAnchor,constant: 8.0)
-        
+//        First Name Label.Top >= Top Layout Guide.Bottom + 20.0
+        let firstLabelTopGreater = lableName.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0)
+//        First Name Label.Top = Top Layout Guide.Bottom + 20.0 (Priority 249)
+        let firstLabelTop = lableName.topAnchor.constraint(equalTo: view.topAnchor, constant: 20.0)
+        firstLabelTop.priority = UILayoutPriority(249)
+//        First Name Text Field.Top >= Top Layout Guide.Bottom + 20.0
+        let firstTextTopGreater = textName.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 20.0)
+//        First Name Text Field.Top = Top Layout Guide.Bottom + 20.0 (Priority 249)
+        let firstTextTop = textName.topAnchor.constraint(equalTo: view.topAnchor, constant: 20.0)
+        firstTextTop.priority = UILayoutPriority(249)
+//        Middle Name Label.Top >= First Name Label.Bottom + Standard
+        let midLabelTopGreater = midLableName.topAnchor.constraint(greaterThanOrEqualTo: lableName.bottomAnchor, constant: 8.0)
+//        Middle Name Label.Top = First Name Label.Bottom + Standard (Priority 249)
+        let midLabelTop = midLableName.topAnchor.constraint(equalTo: lableName.bottomAnchor, constant: 8.0)
+        midLabelTop.priority = UILayoutPriority(249)
+//        Middle Name Text Field.Top >= First Name Text Field.Bottom + Standard
+        let midTextTopGreater = midTextName.topAnchor.constraint(greaterThanOrEqualTo: textName.bottomAnchor, constant: 8.0)
+//
+//        Middle Name Text Field.Top = First Name Text Field.Bottom + Standard (Priority 249)
+        let midTextTop = midTextName.topAnchor.constraint(equalTo: textName.bottomAnchor, constant: 8.0)
+        midTextTop.priority = UILayoutPriority(249)
+//        Last Name Label.Top >= Middle Name Label.Bottom + Standard
+        let lastLabelTopGreater = lastLableName.topAnchor.constraint(greaterThanOrEqualTo: midLableName.bottomAnchor, constant: 8.0)
+//        Last Name Label.Top = Middle Name Label.Bottom + Standard (Priority 249)
+        let lastLabelTop = lastLableName.topAnchor.constraint(equalTo: midLableName.bottomAnchor, constant: 8.0)
+        lastLabelTop.priority = UILayoutPriority(249)
+//        Last Name Text Field.Top >= Middle Name Text Field.Bottom + Standard
+        let lastTextTopGreater = lastTextName.topAnchor.constraint(greaterThanOrEqualTo: midTextName.bottomAnchor, constant: 8.0)
+//        Last Name Text Field.Top = Middle Name Text Field.Bottom + Standard (Priority 249)
+        let lastTextTop = lastTextName.topAnchor.constraint(equalTo: midTextName.bottomAnchor, constant: 8.0)
+        lastTextTop.priority = UILayoutPriority(249)
+
+
         
         
         
@@ -157,8 +186,17 @@ class ViewController : UIViewController{
             lastLableBaseline,
             firstTextWidthToMid,
             firstTextWidthToLast,
+            firstLabelTopGreater,
+            firstLabelTop,
+            firstTextTopGreater,
             firstTextTop,
+            midLabelTopGreater,
+            midLabelTop,
+            midTextTopGreater,
             midTextTop,
+            lastLabelTopGreater,
+            lastLabelTop,
+            lastTextTopGreater,
             lastTextTop
         ])
         print("終了")
